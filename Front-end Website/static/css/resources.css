@@ -1,0 +1,54 @@
+.fly-panel a {
+    display: block;
+    height: 120px;
+    padding-top: 105px;
+    /* border:1px solid black; */
+    text-align: center;
+    font-family: cursive;
+    font-size: 30px;
+
+}
+
+
+#consultation {
+    background-color: #6200EE;
+    color: white;
+}
+
+#consultation:hover {
+    color: #f90;
+    transition: all .3s;
+}
+
+#resources:hover {
+    color: #f90;
+    transition: all .3s;
+}
+
+#exercises:hover {
+    color: #f90;
+    transition: all .3s;
+}
+
+#timetable:hover {
+    color: #f90;
+    transition: all .3s;
+}
+
+#resources {
+    background-color: #3700B3;
+    color: white;
+
+}
+
+#exercises {
+    background-color: #03DAC6;
+    color: white;
+
+}
+
+#timetable {
+    background-color: #018786;
+    color: white;
+
+}

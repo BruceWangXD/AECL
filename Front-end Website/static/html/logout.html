@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=" utf-8">
+    <title>logout</title>
+    <style type="text/css">
+        #timer{
+            width:200px;
+            height:30px;
+            background-color:green;
+            text-align:center;
+            line-height:30px;
+            margin:0px auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>You have logged out.</h1>
+    <h2>This page will redirect to login page in 5 seconds.</h2>
+</div>
+<div id="timer"></div>
+<script type="text/javascript">
+    var otimer;
+    var second=5;
+    document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    function timer(){
+        otimer.innerHTML=second;
+        if(second>0){
+            second=second-1;
+            return false;
+        }
+        window.location.href="/login";
+    }
+    window.onload=function(){
+        otimer=document.getElementById("timer");
+        setInterval(timer,1000);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.layui-card-header {
+    background-color: #009688;
+}
+
+.layui-card-body {
+    background-color: #5FB878;
+    color: white;
+}
+
+.easy_p {
+    color: #5FB878;
+}
+
+
+.medium_p {
+    color: #FFB800;
+}
+
+.hard_p {
+    color: #FF5722;
+}

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aecl.demo.dao.PostMapper">
+  <resultMap id="BaseResultMap" type="com.aecl.demo.entity.Post">
+    <id column="post_id" jdbcType="INTEGER" property="postId" />
+    <result column="pcourse_id" jdbcType="INTEGER" property="pcourseId" />
+    <result column="like" jdbcType="INTEGER" property="like" />
+    <result column="is_pinned" jdbcType="BIT" property="isPinned" />
+    <result column="pperson_id" jdbcType="INTEGER" property="ppersonId" />
+    <result column="post_time" jdbcType="TIMESTAMP" property="postTime" />
+    <result column="post_title" jdbcType="VARCHAR" property="postTitle" />
+    <result column="post_content" jdbcType="VARCHAR" property="postContent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    post_id, pcourse_id, `like`, is_pinned, pperson_id, post_time, post_title, post_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from POST
+    where post_id = #{postId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from POST
+    where post_id = #{postId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aecl.demo.entity.Post">
+    insert into POST (post_id, pcourse_id, like, 
+      is_pinned, pperson_id, post_time, 
+      post_title, post_content)
+    values (#{postId,jdbcType=INTEGER}, #{pcourseId,jdbcType=INTEGER}, #{like,jdbcType=INTEGER}, 
+      #{isPinned,jdbcType=BIT}, #{ppersonId,jdbcType=INTEGER}, #{postTime,jdbcType=TIMESTAMP}, 
+      #{postTitle,jdbcType=VARCHAR}, #{postContent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aecl.demo.entity.Post">
+    insert into POST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="postId != null">
+        post_id,
+      </if>
+      <if test="pcourseId != null">
+        pcourse_id,
+      </if>
+      <if test="like != null">
+        like,
+      </if>
+      <if test="isPinned != null">
+        is_pinned,
+      </if>
+      <if test="ppersonId != null">
+        pperson_id,
+      </if>
+      <if test="postTime != null">
+        post_time,
+      </if>
+      <if test="postTitle != null">
+        post_title,
+      </if>
+      <if test="postContent != null">
+        post_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="postId != null">
+        #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="pcourseId != null">
+        #{pcourseId,jdbcType=INTEGER},
+      </if>
+      <if test="like != null">
+        #{like,jdbcType=INTEGER},
+      </if>
+      <if test="isPinned != null">
+        #{isPinned,jdbcType=BIT},
+      </if>
+      <if test="ppersonId != null">
+        #{ppersonId,jdbcType=INTEGER},
+      </if>
+      <if test="postTime != null">
+        #{postTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="postTitle != null">
+        #{postTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="postContent != null">
+        #{postContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aecl.demo.entity.Post">
+    update POST
+    <set>
+      <if test="pcourseId != null">
+        pcourse_id = #{pcourseId,jdbcType=INTEGER},
+      </if>
+      <if test="like != null">
+        like = #{like,jdbcType=INTEGER},
+      </if>
+      <if test="isPinned != null">
+        is_pinned = #{isPinned,jdbcType=BIT},
+      </if>
+      <if test="ppersonId != null">
+        pperson_id = #{ppersonId,jdbcType=INTEGER},
+      </if>
+      <if test="postTime != null">
+        post_time = #{postTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="postTitle != null">
+        post_title = #{postTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="postContent != null">
+        post_content = #{postContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where post_id = #{postId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aecl.demo.entity.Post">
+    update POST
+    set pcourse_id = #{pcourseId,jdbcType=INTEGER},
+      like = #{like,jdbcType=INTEGER},
+      is_pinned = #{isPinned,jdbcType=BIT},
+      pperson_id = #{ppersonId,jdbcType=INTEGER},
+      post_time = #{postTime,jdbcType=TIMESTAMP},
+      post_title = #{postTitle,jdbcType=VARCHAR},
+      post_content = #{postContent,jdbcType=VARCHAR}
+    where post_id = #{postId,jdbcType=INTEGER}
+  </update>
+
+  <select id="getAllPost" resultMap="BaseResultMap">
+    select *
+    <!--   <include refid="Base_Column_List" />-->
+    from POST
+
+  </select>
+
+
+  <select id="getAllPostByCid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from POST
+    where pcourse_id = #{pcourseId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAllPostByUid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from POST
+    where pperson_id = #{pcourseId,jdbcType=INTEGER}
+  </select>
+
+
+  <select id="getAllHottestPostByCid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from POST
+    where pcourse_id = #{pcourseId,jdbcType=INTEGER}
+    order by `like` limit 5
+  </select>
+
+
+  <select id="getAllPinnedPostByCid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from POST
+    where pcourse_id = #{pcourseId,jdbcType=INTEGER}
+    and is_pinned=1
+  </select>
+
+  <select id="getOneByPid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from POST
+    where pperson_id = #{ppersonId,jdbcType=INTEGER}
+
+  </select>
+
+  <select id="selectCourseIdByPostId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select
+    pcourse_id
+    from POST
+    where post_id = #{param1}
+  </select>
+
+
+</mapper>

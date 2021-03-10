@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Æ cl</title>
+    <meta name="description" content="AE cl."/>
+    <meta name="keywords" content="AE cl"/>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/layui.css">
+    <link rel="stylesheet" href="../css/global.css">
+
+
+</head>
+
+<body>
+<!-- 导航栏 -->
+<div class="fly-header layui-bg-black">
+    <div class="layui-container">
+        <a class="fly-logo" href="/discussion">
+            <img src="../img/logo.png" height="40" alt="logo">
+        </a>
+        <ul class="layui-nav fly-nav-user">
+
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-wenda layui-hide-xs" href="https://10.86.164.216:8080/swagger-ui.html" target="_Blank"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-pinglun layui-hide-xs" href="/discussion"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-yulan layui-hide-xs" href="/exercises"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-shezhi layui-hide-xs" href="/personal"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-jiaoliu layui-hide-xs" href="/messages"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-tuichu layui-hide-xs" href="/logout"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="fly-panel fly-column">
+    <div class="layui-container">
+        <h2>Messages</h2>
+        <ul class="layui-clear">
+        </ul>
+    </div>
+</div>
+
+<div class="layui-container">
+    <div class="layui-row layui-col-space15">
+        <!-- 左边栏 -->
+        <div class="layui-col-md3">
+            <div class="fly-panel">
+                <div class="layui-container" id="newThread">
+                    <a id="message_action" href="javascript:;" onclick="showSendPanel()" class="layui-btn">
+                        New Message
+                        <i class="iconfont icon-fabu"></i>
+                    </a>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <ul id="message_list" class="fly-list">
+                        <li>
+                            <div class="fly-list-info">
+                                <h2><b><a href="javascript:;" onclick="show_message()">How's Everything?</a></b></h2>
+                                <input type="hidden" name="message_id" value="2333" readonly>
+                                <a href="javascript:;" onclick="show_message()">Tyson Thomas</a>
+                                <a href="javascript:;" onclick="show_message()">2020-04-01 23:59:59</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fly-list-info">
+                                <h2><b><a href="javascript:;">How's Everything?</a></b></h2>
+                                <a href="javascript:;">Tyson Thomas</a>
+                                <a>2020-04-01 23:59:59</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fly-list-info">
+                                <h2><b><a href="javascript:;">How's Everything?</a></b></h2>
+                                <a href="javascript:;">Tyson Thomas</a>
+                                <a>2020-04-01 23:59:59</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- 右边栏 -->
+        <div id="main_content" class="layui-col-md9">
+            <div id="send_panel">
+                <div class="fly-panel" pad20 style="padding-top: 5px;">
+                    <div class="layui-form layui-form-pane">
+                        <div class="layui-tab layui-tab-brief" lay-filter="user">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">
+                                    New Message
+                                </li>
+                            </ul>
+                            <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
+                                <div class="layui-tab-item layui-show">
+                                    <form id="send_form" class="layui-form" action="">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">Title</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" required lay-verify="required"
+                                                       placeholder="Please input the title here" autocomplete="off"
+                                                       class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">Receiver</label>
+                                            <div class="layui-input-block">
+                                                <select id="user_list" name="receiverId" lay-verify="required">
+                                                    <option value="">Select</option>
+                                                    <option value="0">INFO2222(li.wenbo1997@email.com)</option>
+                                                    <option value="1">COMP2017</option>
+                                                    <option value="2">COMP3308</option>
+                                                    <option value="3">COMP2123</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item layui-form-text">
+                                            <label class="layui-form-label">Text</label>
+                                            <div class="layui-input-block">
+                                                <textarea name="content" placeholder="Please type here..."
+                                                          class="layui-textarea"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <button type="button" id="submit_message" onclick="send_message()"
+                                                    class="layui-btn">Send
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="message_details" class="fly-panel detail-box">
+                <h1 id="message_title">How are you?</h1>
+                <div class="detail-about">
+                    <a class="fly-avatar" href="javascript:;">
+                        <img src="../img/person.png"
+                             alt="avatar">
+                    </a>
+                    <div class="fly-detail-user">
+                        <a id="message_sender" class="fly-link">
+                            <cite>Tyson Thomas</cite>
+                        </a>
+                        <span id="message_time">2020-04-01 23:42:44</span>
+                    </div>
+                    <div class="detail-hits" id="LAY_jieAdmin" data-id="123">
+                        <span style="padding-right: 10px; color: #FF7200;"></span>
+                    </div>
+                </div>
+                <div class="detail-body photos">
+                    <p id="message_content">Nice to see you mate! How's everything going?</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="fly-footer">
+    <p>
+        2020 &copy;<a href="javascript:;">Æ cl</a>
+    </p>
+</div>
+
+
+<script type="text/javascript" src="../js/layui.js"></script>
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../js/messages.js"></script>
+<script type="text/javascript" src="../js/global_theme.js"></script>
+
+
+</body>
+
+</html>

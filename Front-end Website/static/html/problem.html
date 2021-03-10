@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Æ cl</title>
+    <meta name="description" content="Æ cl"/>
+    <meta name="keywords" content="Æ cl"/>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/layui.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/problem.css">
+
+</head>
+
+<body>
+<!-- 导航栏 -->
+<div class="fly-header layui-bg-black">
+    <div class="layui-container">
+        <a class="fly-logo" href="/discussion">
+            <img src="../img/logo.png" height="40" alt="logo">
+        </a>
+        <ul class="layui-nav fly-nav-user">
+
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-wenda layui-hide-xs" href="https://10.86.164.216:8080/swagger-ui.html" target="_Blank"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-pinglun layui-hide-xs" href="/discussion"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-yulan layui-hide-xs" href="/exercises"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-shezhi layui-hide-xs" href="/personal"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-jiaoliu layui-hide-xs" href="/messages"></a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a class="iconfont icon-tuichu layui-hide-xs" href="/logout"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="fly-panel fly-column">
+    <div class="layui-container">
+        <h2>Problem Set</h2>
+        <ul class="layui-clear">
+        </ul>
+    </div>
+</div>
+
+<div class="layui-container">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-row layui-col-space15">
+            <!-- 左边栏 -->
+            <div id="category_list" class="layui-col-md9" style="height: 105px; overflow:hidden;">
+                <div id="column0" class="layui-col-md3">
+                    <div class="layui-card" style="margin-right: 10px;">
+                        <div style="text-align: center;" class="layui-card-header"><a
+                                class="iconfont icon-tianjia"></a></div>
+                        <div style="text-align: center; margin-top: -1px;" class="layui-card-body">
+                            Python
+                        </div>
+                    </div>
+                    <div class="layui-card" style="margin-right: 10px;">
+                        <div style="text-align: center;" class="layui-card-header"><a
+                                class="iconfont icon-tianjia"></a></div>
+                        <div style="text-align: center; margin-top: -1px;" class="layui-card-body">
+                            Java
+                        </div>
+                    </div>
+                </div>
+                <div id="column1" class="layui-col-md3">
+                    <div class="layui-card" style="margin-right: 10px;">
+                        <div style="text-align: center;" class="layui-card-header"><a
+                                class="iconfont icon-tianjia"></a></div>
+                        <div style="text-align: center; margin-top: -1px;" class="layui-card-body">
+                            C
+                        </div>
+                    </div>
+                    <div class="layui-card" style="margin-right: 10px;">
+                        <div style="text-align: center;" class="layui-card-header"><a
+                                class="iconfont icon-tianjia"></a></div>
+                        <div style="text-align: center; margin-top: -1px;" class="layui-card-body">
+                            SQL
+                        </div>
+                    </div>
+                </div>
+                <div id="column2" class="layui-col-md3">
+                    <div class="layui-card" style="margin-right: 10px;">
+                        <div style="text-align: center;" class="layui-card-header"><a
+                                class="iconfont icon-tianjia" href="javascript:;" onclick="updateProblem(id)"></a></div>
+                        <div style="text-align: center; margin-top: -1px;" class="layui-card-body">
+                            C++
+                        </div>
+                    </div>
+                    <div class="layui-card" style="margin-right: 10px;">
+                        <div style="text-align: center;" class="layui-card-header"><a
+                                class="iconfont icon-tianjia"></a></div>
+                        <div style="text-align: center; margin-top: -1px;" class="layui-card-body">
+                            HTML
+                        </div>
+                    </div>
+                </div>
+                <div id="column3" class="layui-col-md3">
+                    <div class="layui-card" style="margin-right: 10px;">
+                        <div style="text-align: center;" class="layui-card-header"><a
+                                class="iconfont icon-tianjia"></a></div>
+                        <div style="text-align: center; margin-top: -1px;" class="layui-card-body">
+                            Algorithm
+                        </div>
+                    </div>
+                    <div class="layui-card" style="margin-right: 10px;">
+                        <div style="text-align: center;" class="layui-card-header"><a
+                                class="iconfont icon-tianjia"></a></div>
+                        <div style="text-align: center; margin-top: -1px;" class="layui-card-body">
+                            Network
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右边栏 -->
+            <div class="layui-col-md3">
+                <div class="fly-panel fly-block">
+                    <ul class="fly-list">
+                        <li style="height: 10px;">
+                            <button id="show_all" style="margin-top: -10px;" type="button"
+                                    class="layui-btn layui-btn-warm layui-btn-xs">Show All Categories
+                            </button>
+                            <button id="fold_all" style="margin-top: -10px;" type="button"
+                                    class="layui-btn layui-btn layui-btn-xs">Fold Categories
+                            </button>
+
+                        </li>
+                        <li>
+                            <div><h4>“In the middle of difficulty lies opportunity.”  ---Albert Einstein</h4></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 下半部分 -->
+
+
+        <div class="fly-panel" pad20 style="padding-top: 10px;">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="50">
+                    <col width="100">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Difficulty</th>
+                    <th>Content</th>
+                </tr>
+                </thead>
+                <tbody id="problems">
+                <tr>
+                    <td><a href="/pdetails/id">1</a></td>
+                    <td><span class="easy_p">Easy</span></td>
+                    <td><a href="/pdetails/id">Two Sums</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/pdetails">2</a></td>
+                    <td><span class="medium_p">Medium</span></td>
+                    <td><a href="/pdetails">Integer to Roman</td>
+                </tr>
+                <tr>
+                    <td><a href="/pdetails">2</a></td>
+                    <td><span class="hard_p">Hard</span></td>
+                    <td><a href="/pdetails">Letter Combinations of a Phone Number</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="fly-footer">
+    <p>
+        2020 &copy;<a href="javascript:;">Æ cl</a>
+    </p>
+</div>
+
+<!-- Scripts -->
+<script src="../js/layui.js"></script>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script src="../js/problem.js"></script>
+<script type="text/javascript" src="../js/global_theme.js"></script>
+
+
+</body>
+
+</html>

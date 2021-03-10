@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ae cl Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Custom Theme files -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/registration.css" rel="stylesheet" type="text/css"/>
+    <!-- //Custom Theme files -->
+
+</head>
+
+<body>
+<!-- main -->
+<div class="w3layouts-main">
+    <h1>SIGN UP</h1>
+    <div class="agilesign-form">
+        <div class="agileits-top">
+            <form id="regForm" οnsubmit="return false;">
+                <div class="styled-input w3ls-text">
+                    <input id="userName" type="text" name="userName" required=""/>
+                    <label>User Name</label>
+                    <span></span>
+                </div>
+                <div class="styled-input w3ls-text">
+                    <input id="email" type="text" name="email" required=""/>
+                    <label>Email</label>
+                    <span></span>
+                </div>
+                <div class="styled-input w3ls-text">
+                    <input id="password" type="password" name="password" required="">
+                    <label>Password</label>
+                    <span></span>
+                </div>
+                <div class="styled-input w3ls-text">
+                    <input id="repassword" type="password" name="" required="">
+                    <label>Confirm Password</label>
+                    <span></span>
+                </div>
+
+
+                <div id="radio-box">
+                    <p>Academic Year</p>
+                    <div class="radio-input">
+                        <input type="radio" id="year1" value="1" name="year"> <label for="year1">Year 1</label>
+                        <input type="radio" id="year2" value="2" name="year"> <label for="year2">Year 2</label>
+                        <input type="radio" id="year3" name="year" value="3"> <label for="year3">Year 3</label>
+                        <input type="radio" id="year4" name="year" value="4"> <label for="year4">Year 4</label>
+                    </div>
+                </div>
+
+                <div class="wthree-text">
+                    <p>
+                        <input type="checkbox" id="brand" value="">
+                        <label for="brand"><span></span>Agree to <a href="" data-toggle="modal"
+                                                                    data-target="#privacyModal">Privacy Policy</a> and
+                            <a href="" data-toggle="modal"
+                               data-target="#academicModal">Academic Policy</a> </label>
+                    </p>
+                </div>
+            </form>
+            <div class="agileits-bottom">
+                <button id="enrol">To Enrol!</button>
+            </div>
+        </div>
+        <div class="w3agile-btm">
+            <p>Already have an account? <a href="/login">Log In</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="enrolModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Courses List</h4>
+            </div>
+            <div class="modal-body">
+                <div class="course_list">
+                    <h2 class="h3">Course List</h2>
+                    <div id="course-gen" class="list-group">
+                        <a href="javascript:;" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">COMP2017</h5>
+                                <input type="checkbox" name="course1" value="courseID">
+                            </div>
+                            <p class="mb-1">Introduction to System Programming</p>
+                            <small class="text-muted">Tyson Thomas</small>
+                        </a>
+                        <a href="javascript:;" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">COMP2123</h5>
+                                <input type="checkbox" name="course1" value="course1">
+                            </div>
+                            <p class="mb-1">Algorithm and Data Structure</p>
+                            <small class="text-muted">Tyson Thomas</small>
+                        </a>
+                        <a href="javascript:;" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">INFO2222</h5>
+                                <input type="checkbox" name="course1" value="course1">
+                            </div>
+                            <p class="mb-1">Computing 1B: Usability and Security</p>
+                            <small class="text-muted">Tyson Thomas</small>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="recommendation-list">
+                    <h2 class="h3">Hottest Courses</h2>
+                    <div class="list-group" id="recommend-gen">
+                        <a href="javascript:;" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">INFO2222</h5>
+                                <small class="text-muted">55 </small>
+                            </div>
+                            <p class="mb-1">Introduction to System Programming</p>
+                            <small class="text-muted">Tyson Thomas</small>
+                        </a>
+                        <a href="javascript:;" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small class="text-muted">13 </small>
+                            </div>
+                            <p class="mb-1">Introduction to System Programming</p>
+                            <small class="text-muted">Tyson Thomas</small>
+                        </a>
+                        <a href="javascript:;" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small class="text-muted">100 </small>
+                            </div>
+                            <p class="mb-1">Introduction to System Programming</p>
+                            <small class="text-muted">Tyson Thomas</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="registration-submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="privacyModalLabel">User Agreement and Privacy Policy
+                </h4>
+            </div>
+            <div class="modal-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">I understand.</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<div class="modal fade" id="academicModal" tabindex="-1" role="dialog" aria-labelledby="academicModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title" id="academicModalLabel">Academic honesty
+                </h2>
+            </div>
+            <div class="modal-body">
+                <p>While the University is aware that the vast majority of students and staff act ethically and
+                    honestly, it is opposed to and will not tolerate academic dishonesty or plagiarism and will
+                    treat all allegations of dishonesty seriously.</p>
+                <br>
+                <p>Further information on academic honesty, academic dishonesty, and the resources available to all
+                    students can be found on the academic integrity pages on the current students website: <a
+                            href="https://sydney.edu.au/students/academic-integrity.html">https://sydney.edu.au/students/academic-integrity.html.</a>
+                </p>
+                <br>
+                <p>Further information for on research integrity and ethics for postgraduate research students and
+                    students undertaking research-focussed coursework such as Honours and capstone research projects
+                    can be also be found on the current students website: <a
+                            href="https://sydney.edu.au/students/research-integrity-ethics.html">https://sydney.edu.au/students/research-integrity-ethics.html</a>.
+                </p>
+                <br>
+                <h2>Compliance statement</h2>
+                <br>
+                <p>In submitting this work, I acknowledge I have understood the following:</p>
+                <br>
+
+                <p>-I have read and understood the University of Sydney's Academic Honesty in <a
+                        href="https://www.sydney.edu.au/policies/showdoc.aspx?recnum=PDOC2012/254&RendNum=0">Coursework
+                    Policy 2015.</a></p>
+                <br>
+
+                <p>-The work is substantially my own and where any parts of this work are not my own I have
+                    indicated this by acknowledging the source of those parts of the work and enclosed any quoted
+                    text in quotation marks.</p>
+                <br>
+
+                <p>-The work has not previously been submitted in part or in full for assessment in another unit
+                    unless I have been given permission by my unit of study coordinator to do so.</p>
+                <br>
+
+                <p>-The work will be submitted to similarity detection software (Turnitin) and a copy of the work
+                    will be retained in Turnitin's paper repository for future similarity checking. Note: work
+                    submitted by postgraduate research students for research purposes is not added to Turnitin's
+                    paper repository.</p>
+                <br>
+
+                <p>-Engaging in plagiarism or academic dishonesty in coursework will, if detected, lead to the
+                    University commencing proceedings under the Academic Honesty in <a
+                            href="https://www.sydney.edu.au/policies/showdoc.aspx?recnum=PDOC2012/254&RendNum=0">Coursework
+                        Policy 2015</a> and the <a
+                            href="https://www.sydney.edu.au/policies/default.aspx?mode=glossary&word=Academic+honesty">Academic
+                        Honesty Procedures 2016</a>.</p>
+                <br>
+
+                <p>-Engaging another person to complete part or all of the submitted work will, if detected, lead to
+                    the University commencing proceedings against me for potential student misconduct under the<a
+                            href="https://www.sydney.edu.au/policies/showdoc.aspx?recnum=PDOC2017/441&RendNum=0">
+                        University of Sydney (Student Discipline) Rule 2016.</a></p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">I understand.</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<!-- //main -->
+</body>
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/registration.js"></script>
+
+</html>

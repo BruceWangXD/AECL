@@ -1,0 +1,259 @@
+/* reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* start editing from here */
+a {
+    text-decoration: none;
+}
+
+.txt-rt {
+    text-align: right;
+}
+
+/* text align right */
+.txt-lt {
+    text-align: left;
+}
+
+/* text align left */
+.txt-center {
+    text-align: center;
+}
+
+/* text align center */
+.float-rt {
+    float: right;
+}
+
+/* float right */
+.float-lt {
+    float: left;
+}
+
+/* float left */
+.clear {
+    clear: both;
+}
+
+/* clear float */
+.pos-relative {
+    position: relative;
+}
+
+/* Position Relative */
+.pos-absolute {
+    position: absolute;
+}
+
+/* Position Absolute */
+.vertical-base {
+    vertical-align: baseline;
+}
+
+/* vertical align baseline */
+.vertical-top {
+    vertical-align: top;
+}
+
+/* vertical align top */
+nav.vertical ul li {
+    display: block;
+}
+
+/* vertical menu */
+nav.horizontal ul li {
+    display: inline-block;
+}
+
+/* horizontal menu */
+img {
+    max-width: 100%;
+}
+
+/*end reset*/
+body {
+    background: url('../img/bg1.jpg');
+    background-size: cover;
+    text-align: center;
+}
+
+/*--header--*/
+.header-w3l {
+    margin: 2.5em 0em 2em;
+}
+
+.header-w3l h1 {
+    font-size: 3em;
+    color: white;
+    letter-spacing: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/*--main--*/
+.main-content-agile {
+    margin: 5em 0em;
+    margin-bottom: 1em;
+}
+
+.wthree-pro img {
+    border-radius: 50%;
+}
+
+.wthree-pro h2 {
+    font-size: 1.5em;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-top: 0.3em;
+    margin-bottom: 2em;
+    font-weight: 400;
+}
+
+.sub-main-w3 input[type="text"], .sub-main-w3 input[type="password"], .sub-main-w3 input[type="email"] {
+    outline: none;
+    font-size: 1em;
+    padding: 1em 0em 1em 2em;
+    border: none;
+    margin-bottom: 0.3em;
+    background: none;
+    border-bottom: 1px solid #eee;
+    width: 87%;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.sub-main-w3 {
+    position: relative;
+    width: 23%;
+    margin: 0 auto;
+}
+
+.sub-w3l span {
+    float: left;
+    width: 38%;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 1.05em;
+    letter-spacing: 1px;
+}
+
+.sub-w3l span img {
+    margin-right: 13px;
+}
+
+.right-w3l {
+    float: right;
+    width: 60%;
+}
+
+.sub-w3l {
+    margin-top: 1em;
+}
+
+span.icon1, span.icon2 {
+    color: #fff;
+    font-size: 1.1em;
+    position: absolute;
+}
+
+span.icon1 {
+    top: 68%;
+}
+
+span.icon2 {
+    top: 89%;
+}
+
+span.icon1, span.icon2 {
+    left: 2%;
+}
+
+.submitbox input {
+    color: white;
+    background: #d20962;
+    border: none;
+    padding: 8px 31px;
+    outline: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: 400;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    border-radius: 100px;
+
+}
+
+.submitbox input:hover {
+    background: #fff;
+    color: black;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.submitbox {
+    margin: 0 auto;
+    padding-top: 2em;
+}
+
+/*--//main--*/
+
+/*--footer--*/
+.footer {
+    padding: 0em 0 2em;
+}
+
+.footer p {
+    font-size: 0.95em;
+    color: white;
+    padding-top: 0.5em;
+
+    letter-spacing: 2px;
+}
+
+.footer p a {
+    color: #d20962;
+}
+
+.footer p a:hover {
+    text-decoration: underline;
+}

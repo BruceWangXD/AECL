@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aecl.demo.dao.CateExerciseMapper">
+  <resultMap id="BaseResultMap" type="com.aecl.demo.entity.CateExercise">
+    <id column="category_exercise_id" jdbcType="INTEGER" property="categoryExerciseId" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    category_exercise_id, content
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CATEGORY_EXERCISE
+    where category_exercise_id = #{categoryExerciseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from CATEGORY_EXERCISE
+    where category_exercise_id = #{categoryExerciseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aecl.demo.entity.CateExercise">
+    insert into CATEGORY_EXERCISE (category_exercise_id, content)
+    values (#{categoryExerciseId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aecl.demo.entity.CateExercise">
+    insert into CATEGORY_EXERCISE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="categoryExerciseId != null">
+        category_exercise_id,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="categoryExerciseId != null">
+        #{categoryExerciseId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aecl.demo.entity.CateExercise">
+    update CATEGORY_EXERCISE
+    <set>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where category_exercise_id = #{categoryExerciseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aecl.demo.entity.CateExercise">
+      update CATEGORY_EXERCISE
+      set content = #{content,jdbcType=VARCHAR}
+      where category_exercise_id = #{categoryExerciseId,jdbcType=INTEGER}
+  </update>
+
+    <select id="listAllCategory" resultMap="BaseResultMap">
+        select *
+        from CATEGORY_EXERCISE
+    </select>
+
+    <select id="selectCategoryById" parameterType="java.lang.Integer" resultType="java.lang.String">
+        select content
+        from CATEGORY_EXERCISE
+        where category_exercise_id = #{param1}
+    </select>
+
+
+</mapper>

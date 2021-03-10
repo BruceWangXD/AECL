@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aecl.demo.dao.PersonInfoMapper">
+  <resultMap id="BaseResultMap" type="com.aecl.demo.entity.PersonInfo">
+    <id column="person_id" jdbcType="INTEGER" property="personId" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="academic_year" jdbcType="INTEGER" property="academicYear" />
+    <result column="pcourse_1" jdbcType="INTEGER" property="pcourse1" />
+    <result column="pcourse_2" jdbcType="INTEGER" property="pcourse2" />
+    <result column="pcourse_3" jdbcType="INTEGER" property="pcourse3" />
+    <result column="pcourse_4" jdbcType="INTEGER" property="pcourse4" />
+    <result column="theme" jdbcType="BIT" property="theme" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    person_id, email, user_name, password, academic_year, pcourse_1, pcourse_2, pcourse_3, 
+    pcourse_4, theme
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PERSON_INFO
+    where person_id = #{personId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from PERSON_INFO
+    where person_id = #{personId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aecl.demo.entity.PersonInfo">
+    insert into PERSON_INFO (person_id, email, user_name, 
+      password, academic_year, pcourse_1, 
+      pcourse_2, pcourse_3, pcourse_4, 
+      theme)
+    values (#{personId,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{academicYear,jdbcType=INTEGER}, #{pcourse1,jdbcType=INTEGER}, 
+      #{pcourse2,jdbcType=INTEGER}, #{pcourse3,jdbcType=INTEGER}, #{pcourse4,jdbcType=INTEGER}, 
+      #{theme,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aecl.demo.entity.PersonInfo">
+    insert into PERSON_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="personId != null">
+        person_id,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="academicYear != null">
+        academic_year,
+      </if>
+      <if test="pcourse1 != null">
+        pcourse_1,
+      </if>
+      <if test="pcourse2 != null">
+        pcourse_2,
+      </if>
+      <if test="pcourse3 != null">
+        pcourse_3,
+      </if>
+      <if test="pcourse4 != null">
+        pcourse_4,
+      </if>
+      <if test="theme != null">
+        theme,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="personId != null">
+        #{personId,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="academicYear != null">
+        #{academicYear,jdbcType=INTEGER},
+      </if>
+      <if test="pcourse1 != null">
+        #{pcourse1,jdbcType=INTEGER},
+      </if>
+      <if test="pcourse2 != null">
+        #{pcourse2,jdbcType=INTEGER},
+      </if>
+      <if test="pcourse3 != null">
+        #{pcourse3,jdbcType=INTEGER},
+      </if>
+      <if test="pcourse4 != null">
+        #{pcourse4,jdbcType=INTEGER},
+      </if>
+      <if test="theme != null">
+        #{theme,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aecl.demo.entity.PersonInfo">
+    update PERSON_INFO
+    <set>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="academicYear != null">
+        academic_year = #{academicYear,jdbcType=INTEGER},
+      </if>
+      <if test="pcourse1 != null">
+        pcourse_1 = #{pcourse1,jdbcType=INTEGER},
+      </if>
+      <if test="pcourse2 != null">
+        pcourse_2 = #{pcourse2,jdbcType=INTEGER},
+      </if>
+      <if test="pcourse3 != null">
+        pcourse_3 = #{pcourse3,jdbcType=INTEGER},
+      </if>
+      <if test="pcourse4 != null">
+        pcourse_4 = #{pcourse4,jdbcType=INTEGER},
+      </if>
+      <if test="theme != null">
+        theme = #{theme,jdbcType=BIT},
+      </if>
+    </set>
+    where person_id = #{personId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aecl.demo.entity.PersonInfo">
+    update PERSON_INFO
+    set email = #{email,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      academic_year = #{academicYear,jdbcType=INTEGER},
+      pcourse_1 = #{pcourse1,jdbcType=INTEGER},
+      pcourse_2 = #{pcourse2,jdbcType=INTEGER},
+      pcourse_3 = #{pcourse3,jdbcType=INTEGER},
+      pcourse_4 = #{pcourse4,jdbcType=INTEGER},
+      theme = #{theme,jdbcType=BIT}
+    where person_id = #{personId,jdbcType=INTEGER}
+  </update>
+
+    <select id="selectByAuth" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from PERSON_INFO
+        where email= #{param1}
+    </select>
+
+    <select id="selectUserNameById" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select
+    user_name
+    from PERSON_INFO
+    where person_id= #{param1}
+  </select>
+
+
+  <select id="getAllUsers" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List"/>
+      from PERSON_INFO
+  </select>
+
+  <select id="getcourse1" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+      select pcourse_1
+      <include refid="Base_Column_List"/>
+      from PERSON_INFO
+      where person_id= #{personId,jdbcType=INTEGER}
+  </select>
+
+
+    <select id="getcourse2" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select pcourse_2
+        <include refid="Base_Column_List"/>
+        from PERSON_INFO
+        where person_id= #{personId,jdbcType=INTEGER}
+    </select>
+
+    <select id="getcourse3" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select pcourse_3
+        <include refid="Base_Column_List"/>
+        from PERSON_INFO
+        where person_id= #{personId,jdbcType=INTEGER}
+    </select>
+
+    <select id="getcourse4" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select pcourse_4
+        <include refid="Base_Column_List"/>
+        from PERSON_INFO
+        where person_id= #{personId,jdbcType=INTEGER}
+    </select>
+
+
+  <select id="selectByPidCid" resultType="java.lang.Integer">
+    select
+    1
+    from PERSON_INFO
+    where person_id=#{param1}
+    and (pcourse_1=#{param2} or pcourse_2=#{param2} or pcourse_3=#{param2} or pcourse_4=#{param2})
+  </select>
+
+
+    <select id="selectHashById" resultType="java.lang.String">
+    select
+    password
+    from PERSON_INFO
+    where person_id=#{param1}
+  </select>
+
+
+    <update id="updatecoursepidcid1" parameterType="java.lang.Integer">
+   update PERSON_INFO
+   SET pcourse_1=null
+   where person_id=#{param1} and pcourse_1=#{param2};
+   </update>
+    <update id="updatecoursepidcid2" parameterType="java.lang.Integer">
+   update PERSON_INFO
+   SET pcourse_2=null
+   where person_id=#{param1} and pcourse_2=#{param2};
+    </update>
+    <update id="updatecoursepidcid3" parameterType="java.lang.Integer">
+ update PERSON_INFO
+   SET pcourse_3=null
+   where person_id=#{param1} and pcourse_3=#{param2};
+ </update>
+    <update id="updatecoursepidcid4" parameterType="java.lang.Integer">
+   update PERSON_INFO
+   SET pcourse_4=null
+   where person_id=#{param1} and pcourse_4=#{param2}
+</update>
+
+</mapper>

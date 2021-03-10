@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aecl.demo.dao.FavPostMapper">
+  <resultMap id="BaseResultMap" type="com.aecl.demo.entity.FavPost">
+    <id column="favourite_id" jdbcType="INTEGER" property="favouriteId" />
+    <result column="fpost_id" jdbcType="INTEGER" property="fpostId" />
+    <result column="fperson_id" jdbcType="INTEGER" property="fpersonId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    favourite_id, fpost_id, fperson_id
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FAVOURITE_POST
+    where favourite_id = #{favouriteId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from FAVOURITE_POST
+    where favourite_id = #{favouriteId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aecl.demo.entity.FavPost">
+    insert into FAVOURITE_POST (favourite_id, fpost_id, fperson_id
+      )
+    values (#{favouriteId,jdbcType=INTEGER}, #{fpostId,jdbcType=INTEGER}, #{fpersonId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aecl.demo.entity.FavPost">
+    insert into FAVOURITE_POST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="favouriteId != null">
+        favourite_id,
+      </if>
+      <if test="fpostId != null">
+        fpost_id,
+      </if>
+      <if test="fpersonId != null">
+        fperson_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="favouriteId != null">
+        #{favouriteId,jdbcType=INTEGER},
+      </if>
+      <if test="fpostId != null">
+        #{fpostId,jdbcType=INTEGER},
+      </if>
+      <if test="fpersonId != null">
+        #{fpersonId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aecl.demo.entity.FavPost">
+    update FAVOURITE_POST
+    <set>
+      <if test="fpostId != null">
+        fpost_id = #{fpostId,jdbcType=INTEGER},
+      </if>
+      <if test="fpersonId != null">
+        fperson_id = #{fpersonId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where favourite_id = #{favouriteId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aecl.demo.entity.FavPost">
+    update FAVOURITE_POST
+    set fpost_id = #{fpostId,jdbcType=INTEGER},
+      fperson_id = #{fpersonId,jdbcType=INTEGER}
+    where favourite_id = #{favouriteId,jdbcType=INTEGER}
+  </update>
+
+  <select id="getAllFavPost" resultType="com.aecl.demo.entity.FavPost">
+    select *
+
+    from FAVOURITE_POST
+
+  </select>
+
+
+</mapper>
